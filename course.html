@@ -399,7 +399,7 @@ document.addEventListener('click', (e) => {
 window.onload = function() {
     if (localStorage.getItem("isLoggedIn") !== "true") {
         // If not logged in, redirect to login page
-        window.location.href = "/inception/lesson2/login.html";
+        window.location.href = "login.html";
     }
 };
 
@@ -414,7 +414,7 @@ function logout() {
         localStorage.removeItem("isLoggedIn");
 
         // Redirect to login page
-        window.location.href = "/inception/lesson2/login.html";
+        window.location.href = "login.html";
     }, 2000); // Delay for 2 seconds (adjust as needed)
 }
 
