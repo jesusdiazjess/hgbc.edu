@@ -1,0 +1,293 @@
+<html lang="en">
+<head>
+  <!-- Meta Tags for Search Engines --> <!-- Meta Tags for Search Engines --> <!-- Meta Tags for Search Engines --> 
+<title>Portal :: HGBaquiran College</title>
+<meta name="description" content="The road to success is paved with good intentions. Explore the official website of HGBaquiran College for quality education and opportunities.">
+<link rel="canonical" href="https://hgbc.edu.ph">
+
+<!-- Open Graph Meta Tags for Rich Snippets (Optional but recommended) -->
+<meta property="og:title" content="Portal - HGBaquiran College">
+<meta property="og:description" content="The road to success is paved with good intentions.">
+<meta property="og:image" content="https://raw.githubusercontent.com/jesusdiazjess/hgbc.edu.ph/main/metatags/portal.webp">
+<meta property="og:url" content="https://hgbc.edu.ph">
+<meta property="og:type" content="website">
+
+    
+<!-- Open Graph //Facebook Meta Tags -->
+    <meta property="og:title" content="Portal - HGBaquiran College">
+    <meta property="og:description" content="The road to success is paved with good intentions.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/jesusdiazjess/hgbc.edu.ph/main/metatags/portal.webp">
+    <meta property="og:url" content="https://hgbc.edu.ph">
+    <meta property="og:type" content="website">
+    
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portal - HGBaquiran College">
+<meta name="twitter:description" content="The road to success is paved with good intentions.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/jesusdiazjess/hgbc.edu.ph/main/metatags/portal.webp">
+<meta name="twitter:url" content="https://hgbc.edu.ph">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In :: HGBaquiran College</title>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="1design.css">
+
+  <!-- EXTERNAL LIBRARY Eye icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Modal Style */
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#modal.show {
+  display: flex;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#modal.hide {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+#modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Button Style */
+#understand-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#understand-btn:hover {
+  background-color: #45a049;
+}
+
+
+#loading-spinner {
+            display: none; 
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 7px solid #f3f3f3;
+            border-top: 7px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+  </style>
+</head>
+<body>
+    <div id="loading-spinner"></div>
+
+    <div class="background">
+        <div class="login-form">
+          <img src="logo.webp" alt="College Logo" class="logo">
+          <h2>Welcome back</h2><br>
+      
+          <form id="loginForm" onsubmit="return login();">
+            <div class="txt_field">
+              <input type="text" id="username" placeholder=" " required>
+              <label for="username">Username</label>
+            </div><br>
+            
+            <div class="txt_field">
+              <input type="password" name="password" id="password" required placeholder=" " oninput="toggleEyeIcon()">
+              <label for="password">Password</label>
+              <span class="eye-icon" id="eyeIcon" onclick="togglePasswordVisibility()">
+                <i id="toggleIcon" class="fa fa-eye"></i>
+              </span>
+            </div><br>
+      
+            <button type="submit">LOGIN</button>
+          </form>
+      
+          <script>
+            function toggleEyeIcon() {
+                const passwordInput = document.getElementById("password");
+                const eyeIcon = document.getElementById("eyeIcon");
+                if (passwordInput.value.length > 0) {
+                    eyeIcon.style.display = "inline";
+                } else {
+                    eyeIcon.style.display = "none";
+                }
+            }
+      
+            function togglePasswordVisibility() {
+                const passwordInput = document.getElementById("password");
+                const toggleIcon = document.getElementById("toggleIcon");
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
+                } else {
+                    passwordInput.type = "password";
+                    toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
+                }
+            }
+      
+            //  DEFAULT login credentials
+            function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const defaultUsername = "server";
+    const defaultPassword = "FUSASIS";
+
+    if (username === defaultUsername && password === defaultPassword) {
+        alert("Login successful!");
+
+        // Store login status in localStorage
+        localStorage.setItem("isLoggedIn", "true");
+
+        // Show the loading spinner
+        document.getElementById("loading-spinner").style.display = "block";
+
+        // Simulate a delay before redirecting
+        setTimeout(function() {
+            // Redirect to another page (change 'home.html' to the desired URL)
+            window.location.href = "home.html";
+        }, 2000); // Adjust time for delay (in milliseconds)
+
+        return false; // Prevent form submission
+    } else {
+        alert("Incorrect username or password.");
+        return false; // Prevent form submission
+    }
+}
+
+          </script>
+        </div>
+      </div>
+
+      <!-- Modal for "I Understand" prompt -->
+      <div id="modal">
+          <div id="modal-content">
+              <p>You are not allowed to inspect <br>or view the source code of this page. <!--<a href="termsofuse.html" class="privacy-policy-link">Learn More</a>--></p><br>
+              <button id="understand-btn">I Understand</button>
+          </div>
+      </div>
+
+      <!-- Add an audio element for the sound effect -->
+      <audio id="error-sound" src="sounds/error-call-to-attention-129258.mp3" preload="auto"></audio>
+
+      <script>
+          // Disable right-click context menu for the whole page
+          document.addEventListener('contextmenu', function(event) {
+              event.preventDefault();  // Disable right-click menu for the entire page
+          });
+
+          // Prevent developer tools keyboard shortcuts (e.g., F12, Ctrl + Shift + I, Ctrl + U)
+          document.onkeydown = function(e) {
+              // Block F12, Ctrl + Shift + I, Ctrl + U, and other developer tools key combinations
+              if (e.keyCode == 123 || 
+                  (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl + Shift + I
+                  (e.ctrlKey && e.keyCode == 85)) { // Ctrl + U (view page source)
+                  
+                  e.preventDefault();  // Prevent the default action for the keys
+                  // Show the modal with smooth fade-in effect and play the sound
+                  showModal();
+                  playSound(); // Play the error sound when modal appears
+              }
+          };
+
+          // Function to show the modal with a smooth effect
+          function showModal() {
+              var modal = document.getElementById('modal');
+              modal.classList.add('show');  // Add 'show' class to trigger the transition
+          }
+
+          // Function to play the sound effect
+          function playSound() {
+              var sound = document.getElementById('error-sound');
+              if (sound) {
+                  sound.play().catch(function(error) {
+                      console.log("Error playing sound: ", error);
+                  }); // Try to play the sound, log any errors
+              }
+          }
+
+          // Function to close the modal when user clicks "I Understand"
+          document.getElementById('understand-btn').onclick = function() {
+              var modal = document.getElementById('modal');
+              modal.classList.remove('show');  // Remove 'show' class to hide the modal
+          };
+
+          // Function to show the modal with a smooth effect
+function showModal() {
+  var modal = document.getElementById('modal');
+  modal.classList.add('show');  // Add 'show' class to trigger the fade-in transition
+}
+
+// Function to play the sound effect
+function playSound() {
+  var sound = document.getElementById('error-sound');
+  if (sound) {
+    sound.play().catch(function(error) {
+      console.log("Error playing sound: ", error);
+    });
+  }
+}
+
+// Function to close the modal when user clicks "I Understand"
+document.getElementById('understand-btn').onclick = function() {
+  var modal = document.getElementById('modal');
+  
+  // Add fade-out class to trigger the fade-out animation
+  modal.classList.add('hide');
+  
+  // After the fade-out animation is done, remove the modal from the DOM
+  setTimeout(function() {
+    modal.classList.remove('show', 'hide');
+  }, 500);  // 500ms matches the fade-out duration
+};
+
+      </script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | HGBaquiran College</title>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="c-design.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Header and Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /*background-color: #333;*/
+      padding: 15px;
+    }
+
+    nav h1 {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .logo {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    nav ul li a:hover {
+      color: #0073e6;
+    }
+
+    /* Hamburger Menu */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      padding: 50px 20px;
+      
+    }
+
+    .hero-section h2 {
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-style: italic;
+    }
+
+    .highlight {
+      color: #0073e6;
+    }
+
+    .enroll-button {
+      padding: 10px 20px;
+      background-color: #0073e6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .enroll-button:hover {
+      background-color: #005bb5;
+    }
+
+    /* Info Cards */
+    .info-cards {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .card {
+      
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      flex: 1;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.25rem;
+    }
+
+    .card-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0073e6;
+      
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .card-button:hover {
+      background-color: #005bb5;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        text-align: left;
+        padding: 0;
+      }
+
+      nav ul.active {
+        display: block;
+      }
+
+      .hamburger-menu {
+        display: block;
+      }
+
+      .info-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+        margin: 10px 0;
+      }
+
+      .hero-section {
+        padding: 30px 20px;
+      }
+
+      .logo {
+        width: 40px;
+      }
+    }
+    .college-name {
+  font-size: 2em; /* Adjust the size as needed */
+}
+
+#loading-spinner {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 7px solid #f3f3f3;
+            border-top: 7px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+
+        /* Animation for the spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+        <h1 class="college-name">
+            <a href="home.html">
+              <img src="logo.webp" alt="College Logo" class="logo">
+            </a>
+            HGBaquiran College
+          </h1>
+          
+          
+      <ul class="nav-items">
+        <li><a href="home.html"><span class="material-icons">home</span> Home</a></li>
+        
+        <li><a href="course.html"><span class="material-icons">menu_book</span> Courses</a></li>
+        <li><a href="contact.html"><span class="material-icons">mail_outline</span> Contact</a></li>
+        <li><a href="about.html"><span class="material-icons">info</span> About</a></li>
+        <li><a href="#" class="logout" onclick="logout()"><span class="material-icons">exit_to_app</span> LOG OUT</a></li>
+        
+        
+        <!-- Circular Loading Spinner (Initially Hidden) -->
+        <div id="loading-spinner" style="display: none;">
+            <div class="spinner"></div> <!-- Circular Spinner -->
+        </div>
+        
+        
+        
+        
+      </ul>
+      <div class="hamburger-menu" id="hamburger">
+        <span class="material-icons">menu</span>
+      </div>
+    </nav>
+<BR><BR>
+    <h2>Contact Us</h2>
+    <BR><BR>
+      <div class="location-section">
+        <h2>Our Location</h2>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3208.422288524796!2d121.80762795506058!3d17.277977676961456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3385657da1308475%3A0x3e2f74814bba0784!2sHGBaquiran%20College%2C%20Inc.!5e0!3m2!1sen!2sph!4v1716256429598!5m2!1sen!2sph"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    
+    <div class="hero-section"></div>
+<style>
+  .location-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0px auto;
+}
+
+.location-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.map-container {
+    position: relative;
+    width: 500%;
+    padding-top: 300%; /* Aspect Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        width: 300%; /* Adjust width for smaller screens */
+    }
+}
+
+</style>    
+  
+  
+    
+
+  </header>
+
+
+
+  <script>
+    // Get hamburger menu, nav items
+const hamburger = document.getElementById('hamburger');
+const navItems = document.querySelector('.nav-items');
+
+// Toggle the visibility of the navigation menu when hamburger is clicked
+hamburger.addEventListener('click', () => {
+  navItems.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
+
+// Close the navigation menu when clicking outside the menu or hamburger
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !navItems.contains(e.target)) {
+    navItems.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+});
+
+// Check if the user is logged in
+window.onload = function() {
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        // If not logged in, redirect to login page
+        window.location.href = "/inception/lesson2/login.html";
+    }
+};
+
+// Logout function
+function logout() {
+    // Show the loading spinner
+    document.getElementById("loading-spinner").style.display = "block";
+
+    // Simulate a delay before logging out
+    setTimeout(function() {
+        // Remove login status from localStorage
+        localStorage.removeItem("isLoggedIn");
+
+        // Redirect to login page
+        window.location.href = "/inception/lesson2/login.html";
+    }, 2000); // Delay for 2 seconds (adjust as needed)
+}
+
+
+
+
+  </script>
+
+</body>
+<style>
+  /* Style for the modal */
+  #modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex; /* Enable flexbox for centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0s 0.5s; /* Smooth transition */
+  }
+
+  #modal.show {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease, visibility 0s 0s; /* Visibility is immediately visible with fade-in */
+  }
+
+  #modal-content {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%; /* Ensure the content doesn't overflow */
+      transform: translateY(-50px); /* Start from above */
+      transition: transform 0.5s ease; /* Smooth transition */
+  }
+
+  #modal.show #modal-content {
+      transform: translateY(0); /* Content slides into place */
+  }
+
+  #modal button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
+  #modal button:hover {
+      background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<!-- Modal for "I Understand" prompt -->
+<div id="modal">
+  <div id="modal-content">
+      <p>You are not allowed to inspect or view the source code of this page.</p>
+      <button id="understand-btn">I Understand</button>
+  </div>
+</div>
+
+<script>
+  // Disable right-click context menu for the whole page
+  document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();  // Disable right-click menu for the entire page
+  });
+
+  // Prevent developer tools keyboard shortcuts (e.g., F12, Ctrl + Shift + I, Ctrl + U)
+  document.onkeydown = function(e) {
+      // Block F12, Ctrl + Shift + I, Ctrl + U, and other developer tools key combinations
+      if (e.keyCode == 123 || 
+          (e.ctrlKey && e.shiftKey && e.keyCode == 73) || // Ctrl + Shift + I
+          (e.ctrlKey && e.keyCode == 85)) { // Ctrl + U (view page source)
+          
+          e.preventDefault();  // Prevent the default action for the keys
+          // Show the modal with smooth fade-in effect
+          showModal();
+      }
+  };
+
+  // Function to show the modal with a smooth effect
+  function showModal() {
+      var modal = document.getElementById('modal');
+      modal.classList.add('show');  // Add 'show' class to trigger the transition
+  }
+
+  // Function to close the modal when user clicks "I Understand"
+  document.getElementById('understand-btn').onclick = function() {
+      var modal = document.getElementById('modal');
+      modal.classList.remove('show');  // Remove 'show' class to hide the modal
+  };
+</script>
+
+
+</html>
